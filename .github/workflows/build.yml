@@ -32,3 +32,12 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
       - name: Build
         run: ./gradlew build --full-stacktrace
+      - name: Upload EcoEnchants JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: EcoEnchants-26.3
+          path: |
+            **/build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 30
+
